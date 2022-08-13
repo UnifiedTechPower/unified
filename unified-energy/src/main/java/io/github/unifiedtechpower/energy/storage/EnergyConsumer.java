@@ -1,7 +1,10 @@
 package io.github.unifiedtechpower.energy.storage;
 
 import io.github.unifiedtechpower.energy.unit.EnergyUnit;
+import org.bukkit.block.BlockFace;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 /**
  * An {@link EnergyStorage} that can consume energy.
@@ -47,5 +50,13 @@ public interface EnergyConsumer extends EnergyStorage {
     default long getMaxEnergyInput(@NotNull EnergyUnit energyUnit) {
         return energyUnit.convertFrom(getEnergyUnit(), getMaxEnergyInput());
     }
+    
+    /**
+     * Gets a list of {@link BlockFace}s that this {@link EnergyConsumer} can consume energy from.
+     *
+     * @return a list of {@link BlockFace}s that this {@link EnergyConsumer} can consume energy from.
+     */
+    @NotNull
+    List<BlockFace> getConsumerBlockFaces();
     
 }

@@ -1,7 +1,10 @@
 package io.github.unifiedtechpower.energy.storage;
 
 import io.github.unifiedtechpower.energy.unit.EnergyUnit;
+import org.bukkit.block.BlockFace;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 /**
  * An {@link EnergyStorage} that can provide energy.
@@ -47,5 +50,13 @@ public interface EnergyProvider extends EnergyStorage {
     default long getMaxEnergyOutput(@NotNull EnergyUnit energyUnit) {
         return energyUnit.convertFrom(getEnergyUnit(), getMaxEnergyOutput());
     }
+    
+    /**
+     * Gets a list of {@link BlockFace}s that this {@link EnergyProvider} can provide energy to.
+     *
+     * @return a list of {@link BlockFace}s that this {@link EnergyProvider} can provide energy to.
+     */
+    @NotNull
+    List<BlockFace> getProviderBlockFaces();
     
 }
