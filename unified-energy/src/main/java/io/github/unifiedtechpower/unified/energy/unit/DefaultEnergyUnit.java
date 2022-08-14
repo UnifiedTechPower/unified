@@ -1,4 +1,4 @@
-package io.github.unifiedtechpower.energy.unit;
+package io.github.unifiedtechpower.unified.energy.unit;
 
 import org.bukkit.NamespacedKey;
 import org.jetbrains.annotations.NotNull;

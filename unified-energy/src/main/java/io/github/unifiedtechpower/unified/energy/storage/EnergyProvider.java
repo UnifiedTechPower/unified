@@ -1,6 +1,6 @@
-package io.github.unifiedtechpower.energy.storage;
+package io.github.unifiedtechpower.unified.energy.storage;
 
-import io.github.unifiedtechpower.energy.unit.EnergyUnit;
+import io.github.unifiedtechpower.unified.energy.unit.EnergyUnit;
 import org.bukkit.block.BlockFace;
 import org.jetbrains.annotations.NotNull;
 

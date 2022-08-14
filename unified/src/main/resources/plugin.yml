@@ -1,0 +1,6 @@
+name: Unified
+version: "${project.version}"
+main: io.github.unifiedtechpower.unified.Unified
+description: Unified is a library to provide common interfaces for mod-like plugins.
+author: ByteZ1337
+api-version: 1.14

@@ -1,6 +1,6 @@
-package io.github.unifiedtechpower.energy.manager;
+package io.github.unifiedtechpower.unified.energy.manager;
 
-import io.github.unifiedtechpower.energy.storage.EnergyStorage;
+import io.github.unifiedtechpower.unified.energy.storage.EnergyStorage;
 import org.bukkit.Location;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
