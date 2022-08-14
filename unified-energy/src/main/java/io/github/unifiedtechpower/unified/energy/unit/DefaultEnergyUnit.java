@@ -15,7 +15,7 @@ public class DefaultEnergyUnit implements EnergyUnit {
     
     private static final NamespacedKey KEY = NamespacedKey.fromString("unified:default_energy");
     
-    static final EnergyUnit INSTANCE = new DefaultEnergyUnit();
+    private static final EnergyUnit INSTANCE = new DefaultEnergyUnit();
     
     /**
      * Gets the name of this energy unit.
@@ -83,5 +83,10 @@ public class DefaultEnergyUnit implements EnergyUnit {
     public NamespacedKey getKey() {
         assert KEY != null;
         return KEY;
+    }
+    
+    @NotNull
+    public static EnergyUnit getInstance() {
+        return INSTANCE;
     }
 }

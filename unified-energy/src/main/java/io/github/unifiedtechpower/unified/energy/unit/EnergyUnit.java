@@ -67,7 +67,7 @@ public interface EnergyUnit extends Keyed {
     
     @NotNull
     static EnergyUnit getDefault() {
-        return DefaultEnergyUnit.INSTANCE;
+        return DefaultEnergyUnit.getInstance();
     }
     
 }
