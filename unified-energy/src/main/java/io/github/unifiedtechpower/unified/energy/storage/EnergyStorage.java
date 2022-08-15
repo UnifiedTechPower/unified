@@ -31,7 +31,7 @@ public interface EnergyStorage {
      * @param energyUnit the {@link EnergyUnit} the energy should be converted to
      * @return the maximum amount of energy that can be stored.
      */
-    default long getMaxEnergy(EnergyUnit energyUnit) {
+    default long getMaxEnergy(@NotNull EnergyUnit energyUnit) {
         return energyUnit.convertFrom(getEnergyUnit(), getMaxEnergy());
     }
     
@@ -50,7 +50,7 @@ public interface EnergyStorage {
      * @param energyUnit the {@link EnergyUnit} the energy should be converted to
      * @return the amount of energy currently stored.
      */
-    default long getEnergy(EnergyUnit energyUnit) {
+    default long getEnergy(@NotNull EnergyUnit energyUnit) {
         return energyUnit.convertFrom(getEnergyUnit(), getEnergy());
     }
     
@@ -73,7 +73,7 @@ public interface EnergyStorage {
      * @throws IllegalArgumentException if the energy is greater than the maximum amount of energy that can be stored or
      *                                  less than 0.
      */
-    default void setEnergy(EnergyUnit energyUnit, long energy) {
+    default void setEnergy(@NotNull EnergyUnit energyUnit, long energy) {
         setEnergy(energyUnit.convertTo(getEnergyUnit(), energy));
     }
     
@@ -94,7 +94,7 @@ public interface EnergyStorage {
      * @param energyUnit the {@link EnergyUnit} the energy should be converted to
      * @return the remaining free space.
      */
-    default long getFreeSpace(EnergyUnit energyUnit) {
+    default long getFreeSpace(@NotNull EnergyUnit energyUnit) {
         return getMaxEnergy(energyUnit) - getEnergy(energyUnit);
     }
     
