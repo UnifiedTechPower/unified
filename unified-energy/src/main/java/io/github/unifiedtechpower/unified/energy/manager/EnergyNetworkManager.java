@@ -18,16 +18,18 @@ public interface EnergyNetworkManager {
      * Gets the {@link EnergyStorage} at the given location by completing a {@link CompletableFuture}.
      *
      * @param location the location to get the {@link EnergyStorage} from
-     * @param future   the future to complete when the {@link EnergyStorage}s are retrieved
+     * @return a {@link CompletableFuture} that completes with the {@link EnergyStorage} at the given location or null if none was found
      */
-    void getEnergyStorageAt(@NotNull Location location, @NotNull CompletableFuture<@Nullable EnergyStorage> future);
+    @NotNull
+    CompletableFuture<@Nullable EnergyStorage> getEnergyStorageAt(@NotNull Location location);
     
     /**
      * Gets the {@link EnergyStorage}s in the given chunk by completing a {@link CompletableFuture}.
      *
-     * @param chunk  the chunk to get the {@link EnergyStorage}s from
-     * @param future the future to complete when the {@link EnergyStorage}s are retrieved
+     * @param chunk the chunk to get the {@link EnergyStorage}s from
+     * @return a {@link CompletableFuture} that completes with the {@link EnergyStorage}s in the given chunk
      */
-    void getEnergyStoragesIn(@NotNull Chunk chunk, @NotNull CompletableFuture<@NotNull List<@NotNull EnergyStorage>> future);
+    @NotNull
+    CompletableFuture<@NotNull List<@NotNull EnergyStorage>> getEnergyStoragesIn(@NotNull Chunk chunk);
     
 }

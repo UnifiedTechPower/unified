@@ -8,14 +8,15 @@ import org.jetbrains.annotations.NotNull;
  */
 public class DefaultEnergyUnit implements EnergyUnit {
     
-    private DefaultEnergyUnit() {
-    }
+    private static final EnergyUnit INSTANCE = new DefaultEnergyUnit();
     
     private static final String NAME = "UF";
     
     private static final NamespacedKey KEY = NamespacedKey.fromString("unified:default_energy");
     
-    private static final EnergyUnit INSTANCE = new DefaultEnergyUnit();
+    
+    private DefaultEnergyUnit() {
+    }
     
     /**
      * Gets the name of this energy unit.
