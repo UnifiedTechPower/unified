@@ -102,7 +102,7 @@ public class UnifiedEnergy {
      * @return the {@link UnifiedEnergy} instance
      */
     @NotNull
-    private static UnifiedEnergy getInstance() {
+    public static UnifiedEnergy getInstance() {
         return INSTANCE;
     }
     
