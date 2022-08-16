@@ -35,6 +35,16 @@ public class UnifiedEnergy {
     }
     
     /**
+     * Removes a {@link EnergyNetworkManager} from the set of managers.
+     *
+     * @param manager the {@link EnergyNetworkManager} to remove
+     * @return true if the manager was removed, false if it was not in the set
+     */
+    public boolean removeManager(@NotNull EnergyNetworkManager manager) {
+        return managers.remove(manager);
+    }
+    
+    /**
      * Gets the {@link EnergyStorage} at the given location.
      *
      * @param location the location to get the {@link EnergyStorage} from
