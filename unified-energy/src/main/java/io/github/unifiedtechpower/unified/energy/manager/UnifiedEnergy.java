@@ -55,7 +55,7 @@ public class UnifiedEnergy {
         for (var manager : managers)
             futures.add(manager.getEnergyStorageAt(location));
         
-        for (var future : futures) {
+        for (var future : new HashSet<>(futures)) {
             future.thenAccept(storage -> {
                 if (mainFuture.isDone())
                     return;
@@ -88,7 +88,7 @@ public class UnifiedEnergy {
         for (var manager : managers)
             futures.add(manager.getEnergyStoragesIn(chunk));
         
-        for (var future : futures) {
+        for (var future : new HashSet<>(futures)) {
             future.thenAccept(storages -> {
                 if (!storages.isEmpty())
                     energyStorages.putAll(storages);
