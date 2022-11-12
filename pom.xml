@@ -8,8 +8,9 @@
     <artifactId>unified-parent</artifactId>
     <version>0.1-SNAPSHOT</version>
     <modules>
+        <module>unified-core</module>
         <module>unified-energy</module>
-        <module>unified</module>
+        <module>unified-plugin</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -108,5 +109,12 @@
             </plugin>
         </plugins>
     </build>
-
+    
+    <distributionManagement>
+        <repository>
+            <id>xenondevs</id>
+            <url>https://repo.xenondevs.xyz/releases/</url>
+        </repository>
+    </distributionManagement>
+    
 </project>
