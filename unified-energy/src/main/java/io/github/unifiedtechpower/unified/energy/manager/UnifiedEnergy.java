@@ -6,10 +6,7 @@ import org.bukkit.Location;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -83,10 +80,10 @@ public class UnifiedEnergy {
      * @return a {@link CompletableFuture} that completes with a list of {@link EnergyStorage}s in the given chunk
      */
     @NotNull
-    public CompletableFuture<@NotNull List<@NotNull EnergyStorage>> getEnergyStoragesIn(@NotNull Chunk chunk) {
-        var futures = Collections.synchronizedSet(new HashSet<CompletableFuture<@NotNull List<@NotNull EnergyStorage>>>());
-        var energyStorages = Collections.synchronizedList(new ArrayList<@NotNull EnergyStorage>());
-        var mainFuture = new CompletableFuture<@NotNull List<@NotNull EnergyStorage>>();
+    public CompletableFuture<@NotNull Map<@NotNull Location, @NotNull EnergyStorage>> getEnergyStoragesIn(@NotNull Chunk chunk) {
+        var futures = Collections.synchronizedSet(new HashSet<CompletableFuture<@NotNull Map<@NotNull Location, @NotNull EnergyStorage>>>());
+        var energyStorages = Collections.synchronizedMap(new HashMap<@NotNull Location, @NotNull EnergyStorage>());
+        var mainFuture = new CompletableFuture<@NotNull Map<@NotNull Location, @NotNull EnergyStorage>>();
         
         for (var manager : managers)
             futures.add(manager.getEnergyStoragesIn(chunk));
@@ -94,7 +91,7 @@ public class UnifiedEnergy {
         for (var future : futures) {
             future.thenAccept(storages -> {
                 if (!storages.isEmpty())
-                    energyStorages.addAll(storages);
+                    energyStorages.putAll(storages);
                 
                 futures.remove(future);
                 if (futures.isEmpty())
