@@ -7,6 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -30,6 +31,6 @@ public interface EnergyNetworkManager {
      * @return a {@link CompletableFuture} that completes with the {@link EnergyStorage}s in the given chunk
      */
     @NotNull
-    CompletableFuture<@NotNull List<@NotNull EnergyStorage>> getEnergyStoragesIn(@NotNull Chunk chunk);
+    CompletableFuture<@NotNull Map<@NotNull Location, @NotNull EnergyStorage>> getEnergyStoragesIn(@NotNull Chunk chunk);
     
 }
